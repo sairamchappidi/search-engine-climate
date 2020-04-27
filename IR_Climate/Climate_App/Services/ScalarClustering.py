@@ -95,10 +95,8 @@ def getFinalQuery(association,query,top,ps):
 
     newQuery = query
     for each_stem in queryStems:
-        print(each_stem)
         if each_stem in association:
             topN = heapq.nlargest(top+10,association[each_stem],key=association[each_stem].get)
-            print(topN)
             curr = 1
             for new_stem in topN:
                 if (new_stem in check) or len(new_stem)<=3:
@@ -107,7 +105,6 @@ def getFinalQuery(association,query,top,ps):
                 if curr>top:
                     break
                 elif new_stem not in querySet:
-                    print(new_stem)
                     querySet.add(new_stem)
                     curr+=1
 

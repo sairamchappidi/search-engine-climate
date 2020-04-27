@@ -69,21 +69,18 @@ def getGoogleResults(request):
 def getAssociativeExpansion(request):
 
     search_results = getResults()
-    print("calculating")
     expandedQuery = AssociativeClustering.getExpandedQuery(search_term,search_results)
     return JsonResponse({"query":search_term,"expandedQuery":expandedQuery},safe=False)
 
 def getMetricExpansion(request):
 
     search_results = getResults()
-    print("calculating")
     expandedQuery = MetricClustering.getExpandedQuery(search_term, search_results)
     return JsonResponse({"query":search_term,"expandedQuery":expandedQuery},safe=False)
 
 def getScalarExpansion(request):
 
     search_results = getResults()
-    print("calculating")
     expandedQuery = ScalarClustering.getExpandedQuery(search_term, search_results)
     return JsonResponse({"query":search_term,"expandedQuery":expandedQuery},safe=False)
 
